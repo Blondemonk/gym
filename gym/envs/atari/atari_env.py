@@ -29,7 +29,7 @@ class AtariEnv(gym.Env, utils.EzPickle):
             mode=None,
             difficulty=None,
             obs_type='ram',
-            frameskip=(2, 5),
+            frameskip=(1, 1),
             repeat_action_probability=0.,
             full_action_space=False):
         """Frameskip should be either a tuple (indicating a random range to

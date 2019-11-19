@@ -653,7 +653,7 @@ for game in ['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', '
         register(
             id='{}NoFrameskip-v4'.format(name),
             entry_point='gym.envs.atari:AtariEnv',
-            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': 1}, # A frameskip of 1 means we get every frame
+            kwargs={'game': game, 'obs_type': obs_type, 'frameskip': 1},  # A frameskip of 1 means we get every frame
             max_episode_steps=frameskip * 100000,
             nondeterministic=nondeterministic,
         )
@@ -683,3 +683,30 @@ register(
     entry_point='gym.envs.unittest:MemorizeDigits',
     reward_threshold=20,
     )
+
+
+# Gym Soccer
+
+register(
+    id='Soccer-v0',
+    entry_point='gym.envs.gym_soccer:SoccerEnv',
+    timestep_limit=1000,
+    reward_threshold=1.0,
+    nondeterministic=True,
+)
+
+register(
+    id='SoccerEmptyGoal-v0',
+    entry_point='gym.envs.gym_soccer:SoccerEmptyGoalEnv',
+    timestep_limit=1000,
+    reward_threshold=10.0,
+    nondeterministic=True,
+)
+
+register(
+    id='SoccerAgainstKeeper-v0',
+    entry_point='gym.envs.gym_soccer:SoccerAgainstKeeperEnv',
+    timestep_limit=1000,
+    reward_threshold=8.0,
+    nondeterministic=True,
+)
